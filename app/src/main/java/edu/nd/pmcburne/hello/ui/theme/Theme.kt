@@ -21,16 +21,14 @@ private val LightColorScheme = lightColorScheme(
     primary = Purple40,
     secondary = PurpleGrey40,
     tertiary = Pink40
+)
 
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+// UVA brand colors
+private val UvaColorScheme = lightColorScheme(
+    primary    = Color(0xFF232D4B),
+    secondary  = Color(0xFFE57200),
+    background = Color(0xFFF5F5F5),
+    surface    = Color.White,
 )
 
 @Composable
@@ -44,14 +42,20 @@ fun MyApplicationTheme(
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
-
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
+        content = content
+    )
+}
+
+@Composable
+fun HelloTheme(content: @Composable () -> Unit) {
+    MaterialTheme(
+        colorScheme = UvaColorScheme,
         content = content
     )
 }
