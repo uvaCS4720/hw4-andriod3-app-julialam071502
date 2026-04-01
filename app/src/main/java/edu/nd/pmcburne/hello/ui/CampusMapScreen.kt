@@ -76,7 +76,7 @@ fun CampusMapScreen(vm: MapViewModel = viewModel()) {
                 ) {
                     filteredLocations.forEach { loc ->
                         MarkerInfoWindow(
-                            state   = rememberMarkerState(LatLng(loc.latitude, loc.longitude)),
+                            state = rememberMarkerState(position = LatLng(loc.latitude, loc.longitude)),
                             title   = loc.name,
                             snippet = loc.description,
                             icon    = BitmapDescriptorFactory.defaultMarker(
